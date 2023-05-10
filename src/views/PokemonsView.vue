@@ -2,13 +2,15 @@
   import { useGetData } from '../composables/getData'
   import pokemonsLista from '../components/pokemonsLista.vue';
 
-  
 const { data, getData, loading, errorData } = useGetData()
 
 getData("https://pokeapi.co/api/v2/pokemon")
 </script>
 
 <template>
+
+
+
   <div class="containerPokemones">
     <h1>Pokemones</h1>
     <div class="alert alert-danger mt-2" v-if="errorData">{{ errorData }}</div>

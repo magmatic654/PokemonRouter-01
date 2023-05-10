@@ -1,9 +1,17 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { storeToRefs } from 'pinia';
+import { useCounterStore } from '../store/counter.js'
+
+const useCounter = useCounterStore()
+
+const {increment} = useCounter
+const {count, double} = storeToRefs(useCounter)
+
+
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>Home counter: {{ count }}</h1>
+  <h2>Double: {{ double }}</h2>
+  <button @click="increment">Increment</button>
 </template>
